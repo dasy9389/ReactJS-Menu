@@ -1,18 +1,30 @@
 import React from 'react';
-import Header from './components/Header';
-import Section from './components/Section';
-import {BrowserRouter as Router} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Home from './components/pages/Home';
+import Services from './components/pages/Services';
+import Products from './components/pages/Products';
+import ContactUs from './components/pages/ContactUs';
+import SignUp from './components/pages/SignUp';
+import Marketing from './components/pages/Marketing';
+import Consulting from './components/pages/Consulting';
+import './App.css'
 
-class App extends React.Component{
-  render(){
-    return (
-      <Router>
-        <div>
-          <Header />
-          <Section />
-        </div>
-      </Router>
-    );
-  }
+function App(){
+  return (
+    <Router>
+      <Navbar />
+      <Switch>
+        <Route path='/' exact component={Home} />
+        <Route path='/services' exact component={Services} />
+        <Route path='/products' exact component={Products} />
+        <Route path='/contact-us' exact component={ContactUs} />
+        <Route path='/sign-up' exact component={SignUp} />
+        <Route path='/marketing' exact component={Marketing} />
+        <Route path='/consulting' exact component={Consulting} />
+      </Switch>
+    </Router>
+  );
 }
+
 export default App;
