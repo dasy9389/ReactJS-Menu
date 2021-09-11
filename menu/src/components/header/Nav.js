@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
 
 class Nav extends React.Component{
     state = {
@@ -15,11 +15,11 @@ class Nav extends React.Component{
         return(
             <>
                 <ul className={toggle ? 'toggle' : ''}>
-                    <li><Link to='/'>Home</Link></li>
-                    <li><Link to='/blog'>Blog</Link></li>
-                    <li><Link to='/contact'>Contact</Link></li>
-                    <li><Link to='/about'>About</Link></li>
-                    <li><Link to='/login'>Login / Register</Link></li>
+                    <li><NavLink exact to='/' activeClassName="active">Home</NavLink></li>
+                    <li><NavLink exact to='/blog' activeClassName="active">Blog</NavLink></li>
+                    <li><NavLink exact to='/contact' activeClassName="active">Contact</NavLink></li>
+                    <li><NavLink exact to='/about' activeClassName="active">About</NavLink></li>
+                    <li><NavLink exact to='/login' activeClassName="active">Login / Register</NavLink></li>
                     <li className='close' onClick={this.menuToggle}>X</li>
                 </ul>
                 <div className='menu' onClick={this.menuToggle}>Menu</div>
